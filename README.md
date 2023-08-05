@@ -1,1 +1,3 @@
-[ x ] - Fix navbar
+- [x] Fix navbar
+- [x] Compress images
+- [ ] Fix filter blur on iOS 
