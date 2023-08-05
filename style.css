@@ -31,6 +31,10 @@ img {
     -ms-user-select: none;
 }
 
+.statusbar-overlay {
+    opacity: 0;
+}
+
 .header {
     position: fixed;
     top: 0;
