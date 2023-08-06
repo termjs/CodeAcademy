@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@900&display=swap');
 
 :root {
+    color-scheme: dark;
     --navbar-background: rgba(88, 88, 88, 0.1);
     --background-color: rgb(10, 10, 10);
     --primary-text: rgb(255, 255, 255);
