@@ -2,7 +2,7 @@
 
 :root {
     color-scheme: dark;
-    --navbar-background: rgba(88, 88, 88, 0.1);
+    --navbar-background: rgba(10, 10, 10, 0.62);
     --background-color: rgb(10, 10, 10);
     --primary-text: rgb(255, 255, 255);
     --secondary-text: rgb(124, 124, 124);
@@ -20,7 +20,7 @@
 }
 
 body {
-    background-color: rgb(10, 10, 10);
+    background-color: var(--background-color);
 }
 
 img {
