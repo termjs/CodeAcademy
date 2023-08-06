@@ -1,5 +1,5 @@
 - [x] Fix navbar
 - [x] Compress images
 - [x] Fix filter blur on iOS
-- [x] Fix status bar color on iOS (Set to black, need to change to glass one)
+- [x] Fix status bar color on iOS
 - [ ] Fix and add safe space to iOS status bar
