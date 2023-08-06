@@ -2,4 +2,4 @@
 - [x] Compress images
 - [x] Fix filter blur on iOS
 - [x] Fix status bar color on iOS
-- [ ] Fix and add safe space to iOS status bar
+- [x] Fix and add safe space to iOS status bar
