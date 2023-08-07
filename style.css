@@ -321,7 +321,7 @@ img {
 .footer-column ul li a {
     font-size: 16px;
     text-transform: capitalize;
-    color: var(--primary-text)fff;
+    color: var(--primary-text);
     text-decoration: none;
     font-weight: 300;
     color: var(--secondary-text);
@@ -592,7 +592,7 @@ img {
 }
 
 .mypath-name p,
-li {
+.mypath-name li {
     font-weight: 500;
     color: var(--secondary-text);
 }
@@ -705,7 +705,7 @@ li {
 }
 
 .calendar-fields h3,
-p {
+.calendar-fields p {
     padding: 15px;
     font-weight: 500;
 }
@@ -801,7 +801,6 @@ p {
 
 .grid-day.active {
     border: 1px var(--border-color) solid;
-    cursor: pointer;
 }
 
 @keyframes fade-in {
@@ -926,7 +925,7 @@ p {
     }
 
     .mypath-name p,
-    li {
+    .mypath-name li {
         font-size: 12px;
     }
 
