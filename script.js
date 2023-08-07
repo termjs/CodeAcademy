@@ -6,6 +6,7 @@ const header = document.querySelector('.header');
 const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
 const moreButton = document.getElementById('moreButton');
+const dayButtons = document.querySelectorAll('.grid-day.grid-date');
 
 navbarBurger.addEventListener('click', () => {
   fullscreenMenu.style.display = 'block';
@@ -53,15 +54,19 @@ document.addEventListener('click', function (event) {
   if (linkElement) {
     let spanElement = linkElement.previousElementSibling;
 
-    if (spanElement && spanElement.tagName === 'SPAN') {
-      const idValue = spanElement.getAttribute('id');
-      const tempInput = document.createElement('input');
+    for (let i = 0; i < 2 && spanElement; i++) {
+      if (spanElement.tagName === 'SPAN' && spanElement.id && spanElement.id.match(/^start-\d+/)) {
+        const idValue = spanElement.getAttribute('id');
+        const tempInput = document.createElement('input');
 
-      tempInput.value = `termjs.github.io/codeakademis/mypath.html#${idValue}`;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
+        tempInput.value = `termjs.github.io/codeakademis/mypath.html#${idValue}`;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        break;
+      }
+      spanElement = spanElement.previousElementSibling;
     }
   }
 });
@@ -96,4 +101,47 @@ images.forEach((image) => {
   image.addEventListener('click', () => {
     openModal(image.src);
   });
+});
+function updateActivePathSelection() {
+  const linkElements = document.querySelectorAll('.nav-bar-side .shark-1 a');
+  const linkPlaceElements = document.querySelectorAll('.link-place');
+  let activeLinkIndex = -1;
+
+  linkElements.forEach((link, index) => {
+    const linkPlace = linkPlaceElements[index];
+    const rect = linkPlace.getBoundingClientRect();
+
+    if (rect.top <= 100) {
+      activeLinkIndex = index;
+    }
+  });
+
+  linkElements.forEach((link, index) => {
+    if (index === activeLinkIndex) {
+      link.classList.add('active-path-selection');
+    } else {
+      link.classList.remove('active-path-selection');
+    }
+  });
+}
+
+window.addEventListener('scroll', () => {
+  updateActivePathSelection();
+});
+
+window.addEventListener('resize', () => {
+  updateActivePathSelection();
+});
+
+updateActivePathSelection();
+
+const currentDate = new Date();
+const currentDay = currentDate.getDate();
+
+
+dayButtons.forEach(button => {
+  const buttonDay = parseInt(button.innerText, 10);
+  if (buttonDay === currentDay) {
+    button.classList.add('active');
+  }
 });
