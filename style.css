@@ -499,6 +499,7 @@ img {
     height: auto;
     width: 100%;
     border-radius: 15px;
+    cursor: zoom-in;
 }
 
 .path-container {
@@ -593,15 +594,16 @@ li {
     align-items: center;
     text-decoration: none;
     color: var(--primary-text);
+    margin-bottom: 40px;
 }
 
 .path-link::after {
     background: url(https://icons.iconarchive.com/icons/github/octicons/256/link-16-icon.png);
     background-size: 20px 20px;
     filter: invert(1);
-    width: 20px;
     height: 20px;
-    margin: 0px 10px;
+    padding: 0px 10px;
+    margin: 0 10px;
     content: "";
     opacity: 0;
     transition: opacity 0.3s ease-in;
@@ -636,6 +638,56 @@ li {
     color: var(--secondary-text);
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+    cursor: zoom-out;
+    animation: fade-in 0.3s ease-in-out forwards;
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-height: 80%;
+    max-width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 25px;
+    transform: translate(-50%, -50%);
+    animation: fade-in 0.3s ease-in-out forwards;
+}
+
+.modal.fade-out {
+    animation: fade-out 0.3s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 .nav-bar-side {
     display: flex;
     align-items: flex-start;
@@ -655,11 +707,16 @@ li {
     }
 }
 
-
 @media(max-width: 767px) {
     .footer-column {
         width: 50%;
         margin-bottom: 30px;
+    }
+
+    .modal-content {
+        border-radius: 15px;
+        max-height: 90%;
+        max-width: 90%;
     }
 }
 
@@ -723,7 +780,8 @@ li {
         font-size: 12px;
     }
 
-    .mypath-name p, li{
+    .mypath-name p,
+    li {
         font-size: 12px;
     }
 
@@ -731,8 +789,12 @@ li {
         font-size: 20px;
     }
 
-    .navigation-button {
-        display: none;
+    .mypath-introduction {
+        gap: 25px;
+    }
+
+    .navigation-button a {
+        font-size: 13px;
     }
 
     .path-information span {
@@ -771,5 +833,16 @@ li {
 
     .footer-column ul li a {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 410px) {
+    .path-name h1 {
+        font-size: 15px;
+    }
+
+    .path-link::after {
+        background-size: 19px 19px;
+        height: 18px;
     }
 }
