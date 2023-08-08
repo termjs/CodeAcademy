@@ -12,6 +12,7 @@
     --link-color: rgb(139, 141, 227);
     --select-background: rgb(102, 102, 102);
     --select-text-color: rgb(50, 50, 50);
+    --active-status-color: rgb(164, 65, 44);
 }
 
 * {
@@ -462,6 +463,31 @@ img {
     padding-bottom: 75px;
 }
 
+.path-introduction.interns-introduction {
+    flex-direction: column;
+    gap: 35px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0px;
+}
+
+.filter-buttons button {
+    border-radius: 15px;
+    border: 1px var(--border-color) solid;
+    padding: 10px;
+}
+
+.filter-button.filter-active {
+    background-color: red;
+}
+
+.filter-buttons button {
+    background-color: var(--background-color);
+}
+
 .path-steps {
     display: flex;
     text-align: left;
@@ -757,7 +783,7 @@ img {
     left: -1px;
     top: -1px;
     border-radius: 15px;
-    background: linear-gradient(160deg, rgb(164, 65, 44) 0, rgba(27, 27, 56, 0.274) 100%);
+    background: linear-gradient(160deg, var(--active-status-color) 0, rgba(27, 27, 56, 0.274) 100%);
     z-index: -1;
 }
 
@@ -770,7 +796,7 @@ img {
 
 .title-field i {
     padding: 15px 0px 15px 15px;
-    color: rgb(164, 65, 44);
+    color: var(--active-status-color);
 }
 
 .calendar-structure {
@@ -801,7 +827,8 @@ img {
 }
 
 .grid-day.active {
-    border: 1px var(--border-color) solid;
+    border: 1px var(--active-status-color) solid;
+    position: relative;
 }
 
 @keyframes fade-in {
