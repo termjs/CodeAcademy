@@ -7,6 +7,8 @@ const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
 const moreButton = document.getElementById('moreButton');
 const dayButtons = document.querySelectorAll('.grid-day.grid-date');
+const filterButtons = document.querySelectorAll('.filter-button');
+const tableRows = document.querySelectorAll('.table-row');
 
 navbarBurger.addEventListener('click', () => {
   fullscreenMenu.style.display = 'block';
@@ -144,4 +146,21 @@ dayButtons.forEach(button => {
   if (buttonDay === currentDay) {
     button.classList.add('active');
   }
+});
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('filter-active'));
+    button.classList.add('filter-active');
+
+    const filterValue = button.getAttribute('data-filter');
+
+    tableRows.forEach(row => {
+      if (filterValue === 'all' || row.getAttribute('data-filter') === filterValue) {
+        row.style.display = 'table-row';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
 });
