@@ -468,25 +468,50 @@ img {
     gap: 35px;
 }
 
-.filter-buttons {
+#filterButtonContainer {
     display: flex;
     gap: 10px;
-    margin: 25px 0px;
+    margin: 15px 0px;
 }
 
-.filter-buttons button {
-    border-radius: 15px;
+.filter-button {
+    background: var(--background-color);
     border: 1px var(--border-color) solid;
-    padding: 10px;
+    border-radius: 15px;
+    padding: 8px 16px;
+    margin: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: capitalize;
 }
 
-.filter-button.filter-active {
-    background-color: red;
+.filter-active {
+    background: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.filter-buttons button {
-    background-color: var(--background-color);
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
 }
+
+th,
+td {
+    border-bottom: 1px var(--border-color) solid;
+    padding: 12px;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.mypath-name .flag {
+    display: inline-block;
+    width: 20px;
+    max-height: 13px;
+    margin: 0px 5px;
+    border-radius: 5px;
+  }
 
 .path-steps {
     display: flex;
