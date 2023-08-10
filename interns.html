@@ -57,18 +57,14 @@
             <button class="close__button"><i class="fa-solid fa-xmark fa-2xs"></i></button>
         </nav>
     </div>
-    <div class="modal" id="imageModal">
-        <img class="modal-content" id="modalImage">
-    </div>
+
     <!-- Main Landing Page -->
-    <main class="path-container mypath-container">
+    <main class="path-container data-container">
         <div class="path-introduction interns-introduction">
-            <section class="navigation-button">
-                <a href="path.html"><i class="fa-solid fa-arrow-left fa-xs"></i>Back</a>
-            </section>
-            <article class="path-name mypath-name">
-                <h1>Internship path has been started</h1>
-                <div id="filterButtonContainer">
+
+            <article class="path-name data-name">
+                <h1>Internship around the globe</h1>
+                <div id="filter-button-container">
                     <button class="filter-button filter-active" data-filter="all">All</button>
                     <button class="filter-button" data-filter="country">Country</button>
                     <button class="filter-button" data-filter="industry">Industry</button>
@@ -77,10 +73,15 @@
 
                 </div>
 
+                <div id="no-selection" style="display: none;">
+                    <p>No filters are selected</p>
+                </div>
+
                 <table>
                     <tr class="table-row" data-filter="country">
                         <td>Country</td>
-                        <td><img class="flag" src="https://flagcdn.com/w2560/lt.png" alt="Lithuania Flag"> Lithuania</td>
+                        <td><img class="flag" src="https://flagcdn.com/w2560/lt.png" alt="Lithuania Flag"> Lithuania
+                        </td>
                         <td><img class="flag" src="https://flagcdn.com/w2560/pl.png" alt="Poland Flag"> Poland</td>
                     </tr>
                     <tr class="table-row" data-filter="industry">
