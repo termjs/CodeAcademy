@@ -468,7 +468,7 @@ img {
     gap: 35px;
 }
 
-#filterButtonContainer {
+#filter-button-container {
     display: flex;
     gap: 10px;
     margin: 15px 0px;
@@ -482,12 +482,11 @@ img {
     margin: 2px;
     cursor: pointer;
     font-size: 14px;
-    text-transform: capitalize;
 }
 
 .filter-active {
     background: #007bff;
-    color: #fff;
+    color: var(--primary-text);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -502,16 +501,15 @@ td {
     border-bottom: 1px var(--border-color) solid;
     padding: 12px;
     text-align: left;
-    text-transform: capitalize;
 }
 
-.mypath-name .flag {
+.data-name .flag {
     display: inline-block;
     width: 20px;
     max-height: 13px;
     margin: 0px 5px;
     border-radius: 5px;
-  }
+}
 
 .path-steps {
     display: flex;
@@ -573,7 +571,7 @@ td {
     margin: 0 auto;
 }
 
-.mypath-container {
+.data-container {
     padding: 150px 0px 15px 0px;
 }
 
@@ -617,15 +615,15 @@ td {
     transition: transform 0.3s ease;
 }
 
-#moreButton i.rotate180 {
+#moreButton i.rotate-icon {
     transform: rotateX(180deg);
 }
 
-.rotate180 {
+.rotate-icon {
     transform: rotateX(180deg);
 }
 
-.mypath-container {
+.data-container {
     max-width: 1030px;
 }
 
@@ -642,17 +640,17 @@ td {
     color: var(--link-color);
 }
 
-.mypath-name p,
-.mypath-name li {
+.data-name p,
+.data-name li {
     font-weight: 500;
     color: var(--secondary-text);
 }
 
-.mypath-name ul {
+.data-name ul {
     padding: 0px 0px 40px 50px;
 }
 
-.mypath-name img {
+.data-name img {
     margin: 35px 0px;
 }
 
@@ -889,6 +887,19 @@ td {
     visibility: hidden;
 }
 
+@media(max-width: 770px) {
+    #filter-button-container {
+        gap: 0px;
+        display: flex;
+        margin: 15px 0px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+
+
+}
+
 @media(max-width: 767px) {
     .footer-column {
         width: 50%;
@@ -905,6 +916,10 @@ td {
 @media(max-width: 615px) {
     .path-introduction {
         flex-direction: column;
+    }
+
+    .data-name .flag {
+        border-radius: 3px;
     }
 
     .path-introduction img {
@@ -969,16 +984,33 @@ td {
 }
 
 @media (max-width: 520px) {
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+        white-space: nowrap;
+        display: block;
+        overflow-x: auto;
+    }
+
+    th,
+    td {
+        border-bottom: 1px var(--border-color) solid;
+        padding: 12px;
+        text-align: left;
+        text-transform: capitalize;
+    }
+
     .slider {
         width: 300px;
     }
 
-    .mypath-name .lower-title {
+    .data-name .lower-title {
         font-size: 12px;
     }
 
-    .mypath-name p,
-    .mypath-name li {
+    .data-name p,
+    .data-name li {
         font-size: 12px;
     }
 
@@ -1034,6 +1066,13 @@ td {
 }
 
 @media (max-width: 410px) {
+
+    .filter-button,
+    th,
+    td {
+        font-size: 12px;
+    }
+
     .path-name h1 {
         font-size: 15px;
     }
