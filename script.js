@@ -9,6 +9,11 @@ const moreButton = document.getElementById('moreButton');
 const dayButtons = document.querySelectorAll('.grid-day.grid-date');
 const filterButtons = document.querySelectorAll('.filter-button');
 const tableRows = document.querySelectorAll('.table-row');
+const linkElements = document.querySelectorAll('.nav-bar-side .shark-1 a');
+const linkPlaceElements = document.querySelectorAll('.link-place');
+const noSelectionDiv = document.getElementById('no-selection');
+const currentDate = new Date();
+const currentDay = currentDate.getDate();
 
 navbarBurger.addEventListener('click', () => {
   fullscreenMenu.style.display = 'block';
@@ -37,13 +42,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const icon = moreButton.querySelector('i');
 
   moreButton.addEventListener('click', function () {
-    icon.classList.toggle('rotate180');
+    icon.classList.toggle('rotate-icon');
     isIconRotated = !isIconRotated;
   });
 
   document.addEventListener('click', function (event) {
     if (!event.target.matches('#moreButton') && isIconRotated) {
-      icon.classList.remove('rotate180');
+      icon.classList.remove('rotate-icon');
       isIconRotated = false;
     }
   });
@@ -105,8 +110,6 @@ images.forEach((image) => {
   });
 });
 function updateActivePathSelection() {
-  const linkElements = document.querySelectorAll('.nav-bar-side .shark-1 a');
-  const linkPlaceElements = document.querySelectorAll('.link-place');
   let activeLinkIndex = -1;
 
   linkElements.forEach((link, index) => {
@@ -137,10 +140,6 @@ window.addEventListener('resize', () => {
 
 updateActivePathSelection();
 
-const currentDate = new Date();
-const currentDay = currentDate.getDate();
-
-
 dayButtons.forEach(button => {
   const buttonDay = parseInt(button.innerText, 10);
   if (buttonDay === currentDay) {
@@ -150,17 +149,45 @@ dayButtons.forEach(button => {
 
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
-    filterButtons.forEach(btn => btn.classList.remove('filter-active'));
-    button.classList.add('filter-active');
-
     const filterValue = button.getAttribute('data-filter');
+    const isActive = button.classList.contains('filter-active');
+
+    if (filterValue === 'all') {
+      filterButtons.forEach(btn => btn.classList.remove('filter-active'));
+      if (!isActive) {
+        button.classList.add('filter-active');
+      }
+    } else {
+      const allButton = document.querySelector('[data-filter="all"]');
+      if (allButton.classList.contains('filter-active')) {
+        allButton.classList.remove('filter-active');
+      }
+      if (isActive) {
+        button.classList.remove('filter-active');
+      } else {
+        button.classList.add('filter-active');
+      }
+    }
+
+    const activeFilters = Array.from(filterButtons)
+      .filter(btn => btn.classList.contains('filter-active'))
+      .map(btn => btn.getAttribute('data-filter'));
 
     tableRows.forEach(row => {
-      if (filterValue === 'all' || row.getAttribute('data-filter') === filterValue) {
+      const rowFilter = row.getAttribute('data-filter');
+
+      if (activeFilters.includes('all') || activeFilters.includes(rowFilter)) {
         row.style.display = 'table-row';
       } else {
         row.style.display = 'none';
       }
     });
+
+    if (activeFilters.length === 0) {
+      noSelectionDiv.style.display = 'block';
+    } else {
+      noSelectionDiv.style.display = 'none';
+    }
   });
 });
+
