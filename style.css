@@ -914,6 +914,11 @@ td {
 }
 
 @media(max-width: 615px) {
+    .navigation-button {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     .path-introduction {
         flex-direction: column;
     }
@@ -998,7 +1003,6 @@ td {
         border-bottom: 1px var(--border-color) solid;
         padding: 12px;
         text-align: left;
-        text-transform: capitalize;
     }
 
     .slider {
