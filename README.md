@@ -2,7 +2,7 @@ This project serves as a mockup platform for showcasing internship positions. It
 
 ## Live Preview
 ![Website Mockup Preview](./images/Internship-website-preview.png)
-You can check out the live version of the mockup [here](https://termjs.github.io/code-academy/).
+You can check out the live version of the mockup [here](https://termjs.github.io/CodeAcademy/).
 
 ## Features
 • **Fake Calendar for Internship Positions**: A mock calendar system displaying available internship slots.  
